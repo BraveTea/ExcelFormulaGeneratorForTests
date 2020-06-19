@@ -1,0 +1,34 @@
+#Code as is returns a Excel/sheets/numbers formula that calculates the marks according to 
+#a set of paramaters such as weight, max points, num of correct answers.
+
+#TODO:
+#input() work with an input that lets the user choose between printen a 
+#mark list, or a formula, or just a single mark
+#build in a quit
+#while loop it
+# make a dutch and an English version
+#document better
+#add a comma instead of a dot/point in the excelString output in b because Excel doesn't except a point, wants a comma instead.
+
+gehaaldePunten = 19
+maximaalPunten = 29
+cesuur = 0.65 
+aantalPuntenEen6 = round(maximaalPunten * cesuur)
+maxCijfer = 10
+voldoende = 6 #dit is de cesuur drempel. Dus 65% is een 6.0 bijv
+ 
+
+delta_punten = maximaalPunten-aantalPuntenEen6
+delta_score = maxCijfer-voldoende #dit is vier want 10-6 (dus als je 65% is een 5.5 wil maken moet dit 10-5.5 worden dus 4.5)
+
+deltaBerekening = delta_score/delta_punten
+ 
+b = deltaBerekening*aantalPuntenEen6-voldoende
+
+mark = deltaBerekening*gehaaldePunten-b 
+
+print(mark)
+
+excelString = "=SUM(({0}/{1})*kiesHierJeCell-{2})".format(delta_score, delta_punten,round(b,2))
+
+print(excelString)
