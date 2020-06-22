@@ -1,4 +1,4 @@
-#Code as is returns a Excel/sheets/numbers formula that calculates the marks according to 
+#Code as is returns an Excel/sheets/numbers formula that calculates the marks according to 
 #a set of paramaters such as weight, max points, num of correct answers.
 
 #TODO:
