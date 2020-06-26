@@ -1,5 +1,6 @@
-#Code as is returns a Excel/sheets/numbers formula that calculates the marks according to 
-#a set of paramaters such as weight, max points, num of correct answers.
+#Code as is returns a Excel/sheets/numbers formula that can be used to calculate 
+#the marks according to a set of paramaters such as weight, max points, 
+#num of correct answers.
 
 #TODO:
 #input() work with an input that lets the user choose between printen a 
@@ -8,31 +9,36 @@
 #while loop it
 # make a dutch and an English version
 #document better
-#write better variable names
 
+# y = ax + b
+# a = delta_y/delta_x
 
-gehaaldePunten = 39
-maximaalPunten = 60
-cesuur = 0.65
-aantalPuntenEen6 = round(maximaalPunten * cesuur)
-maxCijfer = 10
-voldoende = 6 #dit is de cesuur drempel. Dus 65% is een 6.0 bijv
+pointsOnTest = 39
+maxPoints = 60
+cutOff = 0.65
+numberOfPointForPass = round(maxPoints * cutOff)
+maxMark = 10
+passingMark = 6 #dit is de cutOff drempel. Dus 65% is een 6.0 bijv
  
 
-delta_punten = maximaalPunten-aantalPuntenEen6
-delta_score = maxCijfer-voldoende #dit is vier want 10-6 (dus als je 65% is een 5.5 wil maken moet dit 10-5.5 worden dus 4.5)
+delta_points = maxPoints-numberOfPointForPass
+delta_score = maxMark-passingMark
+a = delta_score/delta_points
+b = a*numberOfPointForPass-passingMark
 
-deltaBerekening = delta_score/delta_punten
+def Calculate_Mark():
+  mark = a*pointsOnTest-b 
+
+  return mark
+
+def excelString():
+  minusDecimalThingy = round(b,2)
+  replacePointComma = str(minusDecimalThingy).replace("." , ",")
+
+  excelString = "=SUM(({0}/{1})*kiesHierJeCell-{2})".format(delta_score, delta_points,replacePointComma)
+
+  return excelString
  
-b = deltaBerekening*aantalPuntenEen6-voldoende
 
-mark = deltaBerekening*gehaaldePunten-b 
-
-print(mark)
-
-minusDecimalThingy = round(b,2)
-replacePointComma = str(minusDecimalThingy).replace("." , ",")
-
-excelString = "=SUM(({0}/{1})*kiesHierJeCell-{2})".format(delta_score, delta_punten,replacePointComma)
-
-print(excelString)
+print(Calculate_Mark())
+print(excelString())
