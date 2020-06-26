@@ -20,11 +20,14 @@ numberOfPointForPass = round(maxPoints * cutOff)
 maxMark = 10
 passingMark = 6 #dit is de cutOff drempel. Dus 65% is een 6.0 bijv
  
-
+#DO NOT CHANGE THESE VARIABLES!
 delta_points = maxPoints-numberOfPointForPass
 delta_score = maxMark-passingMark
 a = delta_score/delta_points
 b = a*numberOfPointForPass-passingMark
+
+def Programme_Loop():
+  while 
 
 def Calculate_Mark():
   mark = a*pointsOnTest-b 
@@ -40,5 +43,15 @@ def excelString():
   return excelString
  
 
+def Dutch_UI():
+
+
+def English_UI():
+
+
 print(Calculate_Mark())
 print(excelString())
+
+
+
+
