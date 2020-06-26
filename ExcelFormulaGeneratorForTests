@@ -10,6 +10,7 @@
 # make a dutch and an English version
 #document better
 
+#LEAVE THE FORMULA IN
 # y = ax + b
 # a = delta_y/delta_x
 
@@ -26,7 +27,7 @@ delta_score = maxMark-passingMark
 a = delta_score/delta_points
 b = a*numberOfPointForPass-passingMark
 
-def Programme_Loop():
+def Programme_Loop(): #writing a base loop here, this will run the programme, and all other functions will run in here.
   while 
 
 def Calculate_Mark():
@@ -43,10 +44,10 @@ def excelString():
   return excelString
  
 
-def Dutch_UI():
+def Dutch_UI(): #user will get the choice to first choose their preferred language when the programme will ask for input
 
 
-def English_UI():
+def English_UI(): #user will get the choice to first choose their preferred language when the programme will ask for input
 
 
 print(Calculate_Mark())
